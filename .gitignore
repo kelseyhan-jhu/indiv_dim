@@ -2,6 +2,7 @@ cat > .gitignore << EOF
 # Project specific
 results/
 logs/
+*.out
 
 # Python
 __pycache__/
