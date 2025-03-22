@@ -1,0 +1,110 @@
+Processing job for ROI: occipital
+Array task ID: 0
+Processing batch 0 (pairs 0 to 27)
+/scratch4/mbonner5/chan21/indiv_dim
+2025-03-22 11:39:13,436 [INFO] Processing ROI: occipital
+2025-03-22 11:39:13,436 [INFO] Processing batch range: 0-27
+2025-03-22 11:39:13,457 [INFO] Total pairs: 28
+2025-03-22 11:39:13,457 [INFO] Processing indices 0 to 27
+2025-03-22 11:39:13,457 [INFO] Processing 28 subject pairs
+2025-03-22 11:39:13,457 [INFO] Output already exists for ('sub-NSD103', 'sub-NSD104'). Skipping.
+2025-03-22 11:39:13,458 [INFO] Output already exists for ('sub-NSD103', 'sub-NSD105'). Skipping.
+2025-03-22 11:39:13,458 [INFO] Processing subject pair: sub-NSD103 & sub-NSD106
+2025-03-22 11:42:50,147 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD106') and iteration
+2025-03-22 11:42:50,226 [INFO] Spectra: [ 3.48524800e+02  1.03691164e+02  6.99918841e+01 ... -1.02093204e-02
+ -4.90350439e-03  1.58581455e-02]
+2025-03-22 11:42:53,323 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD106') and defeat
+2025-03-22 11:42:53,419 [INFO] Spectra: [3.18386313e+02 9.64035382e+01 6.51876509e+01 ... 7.27692607e-03
+ 1.41505911e-02 1.86075029e-02]
+2025-03-22 11:42:56,418 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD106') and growth
+2025-03-22 11:42:56,509 [INFO] Spectra: [ 1.70495666e+02  1.14262665e+02  1.07358791e+02 ... -1.44664233e-02
+  4.87299359e-02  9.23414978e-03]
+2025-03-22 11:42:59,662 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD106') and lemonade
+2025-03-22 11:42:59,763 [INFO] Spectra: [ 3.20979578e+02  5.15818922e+01  7.28377750e+01 ... -5.43838919e-02
+  2.23523815e-02 -2.48868431e-02]
+2025-03-22 11:42:59,764 [INFO] Successfully processed pair ('sub-NSD103', 'sub-NSD106')
+2025-03-22 11:42:59,766 [INFO] Processing subject pair: sub-NSD103 & sub-NSD108
+2025-03-22 11:43:59,994 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD108') and iteration
+2025-03-22 11:44:00,074 [INFO] Spectra: [ 2.39783263e+02  7.71938728e+01  6.52901681e+01 ...  1.86838642e-02
+ -2.11438976e-02 -6.15499767e-03]
+2025-03-22 11:44:03,220 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD108') and defeat
+2025-03-22 11:44:03,316 [INFO] Spectra: [ 3.20619097e+02  7.10378271e+01  5.74307850e+01 ...  7.64052084e-03
+ -9.08300784e-03  8.93121499e-03]
+2025-03-22 11:44:06,335 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD108') and growth
+2025-03-22 11:44:06,426 [INFO] Spectra: [ 1.03064102e+02  7.61114202e+01  8.91878043e+01 ...  1.23057235e-02
+ -4.59484874e-02 -1.03850177e-01]
+2025-03-22 11:44:09,660 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD108') and lemonade
+2025-03-22 11:44:09,761 [INFO] Spectra: [ 2.56144430e+02  5.68524414e+01  7.34339474e+01 ... -4.25569683e-02
+  2.86961595e-02  1.64309642e-02]
+2025-03-22 11:44:09,762 [INFO] Successfully processed pair ('sub-NSD103', 'sub-NSD108')
+2025-03-22 11:44:09,765 [INFO] Processing subject pair: sub-NSD103 & sub-NSD109
+2025-03-22 11:44:51,635 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD109') and iteration
+2025-03-22 11:44:51,713 [INFO] Spectra: [ 2.69769861e+02  7.70362593e+01  6.07701376e+01 ... -4.45956214e-02
+ -1.55145942e-03 -6.53224585e-03]
+2025-03-22 11:44:54,918 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD109') and defeat
+2025-03-22 11:44:55,014 [INFO] Spectra: [ 2.23458473e+02  7.72190659e+01  4.87143632e+01 ... -1.71445979e-02
+  1.91374766e-02  2.08561719e-02]
+2025-03-22 11:44:58,140 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD109') and growth
+2025-03-22 11:44:58,232 [INFO] Spectra: [ 6.81125477e+01  8.57652102e+01  3.42383506e+01 ... -3.28953179e-02
+  6.98010929e-03 -1.65800382e-02]
+2025-03-22 11:45:01,533 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD109') and lemonade
+2025-03-22 11:45:01,634 [INFO] Spectra: [2.02345619e+02 4.34355185e+01 5.93537506e+01 ... 1.92790381e-02
+ 2.75115738e-02 1.76181557e-03]
+2025-03-22 11:45:01,635 [INFO] Successfully processed pair ('sub-NSD103', 'sub-NSD109')
+2025-03-22 11:45:01,638 [INFO] Processing subject pair: sub-NSD103 & sub-NSD110
+2025-03-22 11:45:43,407 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD110') and iteration
+2025-03-22 11:45:43,485 [INFO] Spectra: [ 2.82254406e+02  8.94078021e+01  6.22193584e+01 ... -5.48666796e-02
+ -2.32119338e-03  3.97466082e-02]
+2025-03-22 11:45:46,573 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD110') and defeat
+2025-03-22 11:45:46,671 [INFO] Spectra: [ 2.85321391e+02  7.04274476e+01  4.16940743e+01 ...  1.92211501e-02
+  1.39755044e-02 -3.91624922e-03]
+2025-03-22 11:45:49,666 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD110') and growth
+2025-03-22 11:45:49,758 [INFO] Spectra: [ 1.41710201e+02  8.32336662e+01  6.89034643e+01 ...  6.35992846e-03
+  4.10820067e-02 -9.56276392e-03]
+2025-03-22 11:45:52,943 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD110') and lemonade
+2025-03-22 11:45:53,044 [INFO] Spectra: [ 2.60041640e+02  4.03139412e+01  5.20503300e+01 ...  3.15751874e-02
+  6.70530883e-02 -1.50243569e-03]
+2025-03-22 11:45:53,046 [INFO] Successfully processed pair ('sub-NSD103', 'sub-NSD110')
+2025-03-22 11:45:53,047 [INFO] Processing subject pair: sub-NSD103 & sub-NSD111
+2025-03-22 11:46:34,999 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD111') and iteration
+2025-03-22 11:46:35,078 [INFO] Spectra: [ 1.40992777e+02  6.67367987e+01  7.18635257e+01 ... -4.64499564e-02
+  1.34486229e-02 -4.61471398e-03]
+2025-03-22 11:46:38,317 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD111') and defeat
+2025-03-22 11:46:38,413 [INFO] Spectra: [ 1.89549688e+02  7.27575499e+01  7.10609189e+01 ...  3.86319025e-02
+  1.55019074e-02 -2.40927632e-02]
+2025-03-22 11:46:41,488 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD111') and growth
+2025-03-22 11:46:41,579 [INFO] Spectra: [ 8.95714562e+01  7.32247801e+01  7.83394496e+01 ...  4.00219026e-02
+ -3.09374091e-02  6.63941864e-03]
+2025-03-22 11:46:44,898 [INFO] Computing covariances for ('sub-NSD103', 'sub-NSD111') and lemonade
+2025-03-22 11:46:44,999 [INFO] Spectra: [ 2.28727400e+02  2.92867292e+01  4.35184671e+01 ...  2.00658758e-02
+ -5.68363406e-02 -3.38312296e-03]
+2025-03-22 11:46:45,001 [INFO] Successfully processed pair ('sub-NSD103', 'sub-NSD111')
+2025-03-22 11:46:45,002 [INFO] Processing subject pair: sub-NSD104 & sub-NSD105
+2025-03-22 11:47:37,121 [INFO] Computing covariances for ('sub-NSD104', 'sub-NSD105') and iteration
+2025-03-22 11:47:37,200 [INFO] Spectra: [ 3.07412909e+02  6.84953321e+01  6.03746366e+01 ... -1.49138486e-03
+  1.48672625e-02  1.27157180e-02]
+2025-03-22 11:47:40,494 [INFO] Computing covariances for ('sub-NSD104', 'sub-NSD105') and defeat
+2025-03-22 11:47:40,589 [INFO] Spectra: [ 3.58660553e+02  9.60322608e+01  7.13066532e+01 ... -2.99363345e-02
+ -2.01797689e-03  1.58796786e-02]
+2025-03-22 11:47:43,686 [INFO] Computing covariances for ('sub-NSD104', 'sub-NSD105') and growth
+2025-03-22 11:47:43,777 [INFO] Spectra: [ 1.46837006e+02  8.80108985e+01  7.39703688e+01 ...  1.72440751e-02
+ -2.93783255e-02 -3.82874987e-02]
+2025-03-22 11:47:47,078 [INFO] Computing covariances for ('sub-NSD104', 'sub-NSD105') and lemonade
+2025-03-22 11:47:47,180 [INFO] Spectra: [2.49749826e+02 4.29152784e+01 6.13542771e+01 ... 4.20851332e-02
+ 1.49097970e-02 7.29457047e-03]
+2025-03-22 11:47:47,181 [INFO] Successfully processed pair ('sub-NSD104', 'sub-NSD105')
+2025-03-22 11:47:47,183 [INFO] Processing subject pair: sub-NSD104 & sub-NSD106
+2025-03-22 11:48:28,713 [INFO] Computing covariances for ('sub-NSD104', 'sub-NSD106') and iteration
+2025-03-22 11:48:28,791 [INFO] Spectra: [3.11129363e+02 9.22805399e+01 6.24492803e+01 ... 1.86511268e-02
+ 2.27919458e-03 2.36203858e-03]
+2025-03-22 11:48:31,865 [INFO] Computing covariances for ('sub-NSD104', 'sub-NSD106') and defeat
+2025-03-22 11:48:31,960 [INFO] Spectra: [ 3.49409413e+02  1.27543003e+02  6.27906113e+01 ... -1.69831873e-02
+ -6.50526499e-03 -2.50462779e-03]
+2025-03-22 11:48:34,948 [INFO] Computing covariances for ('sub-NSD104', 'sub-NSD106') and growth
+2025-03-22 11:48:35,038 [INFO] Spectra: [ 2.00730478e+02  1.21946442e+02  8.92201956e+01 ... -1.96445055e-02
+  1.84171940e-03 -3.05294245e-03]
+2025-03-22 11:48:38,180 [INFO] Computing covariances for ('sub-NSD104', 'sub-NSD106') and lemonade
+2025-03-22 11:48:38,281 [INFO] Spectra: [3.55257266e+02 4.10377432e+01 6.06340397e+01 ... 2.77969020e-02
+ 6.92161340e-02 3.94738017e-02]
+2025-03-22 11:48:38,282 [INFO] Successfully processed pair ('sub-NSD104', 'sub-NSD106')
+2025-03-22 11:48:38,284 [INFO] Processing subject pair: sub-NSD104 & sub-NSD108

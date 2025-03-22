@@ -1,0 +1,164 @@
+subjects:
+- sub-NSD103
+- sub-NSD104
+- sub-NSD105
+- sub-NSD106
+# - sub-NSD107
+- sub-NSD108
+- sub-NSD109
+- sub-NSD110
+- sub-NSD111
+# - sub-NSD112
+# - sub-NSD113
+# - sub-NSD114
+# - sub-NSD115
+# - sub-NSD116
+# - sub-NSD117
+# - sub-NSD119
+# - sub-NSD120
+# - sub-NSD122
+# - sub-NSD123
+# - sub-NSD124
+# - sub-NSD125
+# - sub-NSD126
+# - sub-NSD127
+# - sub-NSD128
+# - sub-NSD129
+# - sub-NSD130
+# - sub-NSD132
+# - sub-NSD133
+# - sub-NSD134
+# - sub-NSD135
+# - sub-NSD136
+# - sub-NSD138
+# - sub-NSD140
+# - sub-NSD142
+# - sub-NSD145
+# - sub-NSD146
+# - sub-NSD147
+# - sub-NSD148
+# - sub-NSD149
+# - sub-NSD150
+# - sub-NSD151
+# - sub-NSD153
+# - sub-NSD155
+movies:
+  - iteration
+  - defeat
+  - growth
+  - lemonade
+data_path: '/data/mbonner5/chan21/datasets/finn_final/trimmed/derivatives'
+roi_names:
+- occipital
+# - ventral
+# - temporal
+# - semantic
+# - aal1
+# - aal2
+# - aal3
+# - aal4
+# - aal5
+# - aal6
+# - aal7
+# - aal8
+# - aal9
+# - aal10
+# - aal11
+# - aal12
+# - aal13
+# - aal14
+# - aal15
+# - aal16
+# - aal17
+# - aal18
+# - aal19
+# - aal20
+# - aal21
+# - aal22
+# - aal23
+# - aal24
+# - aal25
+# - aal26
+# - aal27
+# - aal28
+# - aal29
+# - aal30
+# - aal31
+# - aal32
+# - aal33
+# - aal34
+# - aal35
+# - aal36
+# - aal37
+# - aal38
+# - aal39
+# - aal40
+# - aal41
+# - aal42
+# - aal43
+# - aal44
+# - aal45
+# - aal46
+# - aal47
+# - aal48
+# - aal49
+# - aal50
+# - aal51
+# - aal52
+# - aal53
+# - aal54
+# - aal55
+# - aal56
+# - aal57
+# - aal58
+# - aal59
+# - aal60
+# - aal61
+# - aal62
+# - aal63
+# - aal64
+# - aal65
+# - aal66
+# - aal67
+# - aal68
+# - aal69
+# - aal70
+# - aal71
+# - aal72
+# - aal73
+# - aal74
+# - aal75
+# - aal76
+# - aal77
+# - aal78
+# - aal79
+# - aal80
+# - aal81
+# - aal82
+# - aal83
+# - aal84
+# - aal85
+# - aal86
+# - aal87
+# - aal88
+# - aal89
+# - aal90
+# - aal91
+# - aal92
+# - aal93
+# - aal94
+# - aal95
+# - aal96
+# - aal97
+# - aal98
+# - aal99
+# - aal100
+metric: 'cov'
+alignment: 'functional'
+random_state: 0
+perform_permutations: false
+n_permutations: 1000
+perform_downsampling: false
+block_size: 6
+n_downsample: 0
+overwrite: True
