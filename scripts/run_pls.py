@@ -19,7 +19,7 @@ from itertools import combinations
 import yaml
 from sklearn.decomposition import PCA
 
-PERM_BATCH_SIZE = 20  # For permutation processing
+PERM_BATCH_SIZE = 3  # For permutation processing
 
 def parse_args():
     parser = argparse.ArgumentParser(description='PLS Analysis Pipeline')

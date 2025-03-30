@@ -3,6 +3,7 @@ cat > .gitignore << EOF
 results/
 logs/
 *.out
+*.err
 
 # Python
 __pycache__/

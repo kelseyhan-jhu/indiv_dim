@@ -2,7 +2,7 @@
 set -e  # Exit on error
 
 # Define constants
-PAIRS_PER_BATCH=50
+PAIRS_PER_BATCH=25
 
 # Generate configuration and pairs
 python3 - <<EOF

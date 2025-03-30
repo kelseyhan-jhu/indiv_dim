@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=pls_analysis
 #SBATCH --time=36:00:00
-#SBATCH --partition=parallel
+#SBATCH --partition=shared
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
@@ -86,7 +86,26 @@ if ! python /scratch4/mbonner5/chan21/indiv_dim/scripts/run_pls.py \
     --random-state "$CONFIG_RANDOM_STATE" \
     --block-size "$CONFIG_BLOCK_SIZE" \
     --data-path "$CONFIG_DATA_PATH"; then
-    
+
+    # Capture the exit code
+    EXIT_CODE=$?
+
+    # Check for memory-related failure and resubmit if needed
+    if [ $EXIT_CODE -eq 137 ] || [ $EXIT_CODE -eq 9 ]; then
+        # OOM kill typically results in exit code 137 or 9
+        echo "Job ${SLURM_ARRAY_TASK_ID} failed due to memory error on node $(hostname), retrying..."
+        
+        # Create a record of the failed node for future reference
+        echo "$(hostname)" >> failed_nodes.txt
+        
+        # Submit a new job excluding this node
+        SCRIPT_PATH="$0"  # Path to this script
+        sbatch --exclude=$(hostname) "$SCRIPT_PATH" "${@:1}"  # Resubmit with original arguments
+        
+        # Exit with non-zero to indicate to SLURM this job failed
+        exit $EXIT_CODE
+    fi
+
     echo "Error: PLS analysis failed"
     exit 1
 fi
