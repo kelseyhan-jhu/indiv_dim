@@ -29,11 +29,11 @@ def parse_arguments():
 def main():    
     # Simulate arguments
     args = argparse.Namespace(
-        dir="isc_pmc_functional",
+        dir="cov_pmc_functional_perm",
         roi="pmc",
-        metric="isc",
+        metric="cov",
         alignment="functional",
-        perform_permutations=False,
+        perform_permutations=True,
         n_permutations=1000
         )
     

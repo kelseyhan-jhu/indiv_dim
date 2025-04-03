@@ -103,8 +103,11 @@ def compute_idm_fp(args, movie=None):
                     for j, j_subject in enumerate(subjects[i+1:], i+1):
                         spectrum = h5f[f"data/{i_subject}_{j_subject}_{movie}"]["observed"][:MIN_LENGTH]
                         for n_bin, bin_id in enumerate(unique_bins):
-                            all_spectra[i, j, n_bin] = spectrum[bin_assignments == bin_id].mean()
-                            all_spectra[j, i, n_bin] = all_spectra[i, j, n_bin]
+                            try:
+                                all_spectra[i, j, n_bin] = spectrum[bin_assignments == bin_id].mean()
+                                all_spectra[j, i, n_bin] = all_spectra[i, j, n_bin]
+                            except Exception as e:
+                                continue
                 idms.append(np.moveaxis(all_spectra, -1, 0))
         return analysis, idms, anat_matrices
 
@@ -123,8 +126,11 @@ def compute_idm_fp(args, movie=None):
                 for j, j_subject in enumerate(subjects[i+1:], i+1):
                     spectrum = h5f[f"data/{i_subject}_{j_subject}_{movie}"]["observed"][:min_length]
                     for n_bin, bin_id in enumerate(unique_bins):
-                        all_spectra[i, j, n_bin] = spectrum[bin_assignments == bin_id].mean()
-                        all_spectra[j, i, n_bin] = all_spectra[i, j, n_bin]
+                        try:
+                            all_spectra[i, j, n_bin] = spectrum[bin_assignments == bin_id].mean()
+                            all_spectra[j, i, n_bin] = all_spectra[i, j, n_bin]
+                        except Exception as e:
+                            continue
             idm_series[movie] = all_spectra
 
     idm_even_series = np.nanmean([idm_series[movie] for movie in movies[::2]], axis=0)
@@ -199,8 +205,11 @@ def permute_idm_series(args, n_permutations=1000):
                                 except:
                                     spectrum = h5f[f"data/{j_subject}_{i_subject}_{movie}"]["observed"][:min_length]
                                 for n_bin, bin_id in enumerate(unique_bins):
-                                    all_spectra[i, j, n_bin] = spectrum[bin_assignments == bin_id].mean()
-                                    all_spectra[j, i, n_bin] = all_spectra[i, j, n_bin]
+                                    try:
+                                        all_spectra[i, j, n_bin] = spectrum[bin_assignments == bin_id].mean()
+                                        all_spectra[j, i, n_bin] = all_spectra[i, j, n_bin]
+                                    except Exception as e:
+                                        continue
                     permuted_series[movie].append(np.moveaxis(all_spectra, -1, 0))
         with open(file, "wb") as f:
             pickle.dump(permuted_series, f)
@@ -209,11 +218,12 @@ def permute_idm_series(args, n_permutations=1000):
     
 
 def main():
-    rois = ['occipital', 'ventral', 'temporal', 'semantic']
+    rois = ['pmc'] #['occipital', 'ventral', 'temporal', 'semantic']
     rois_names = {'occipital': 'OCC',
               'ventral': 'VNT TMP',
               'temporal': 'LAT TMP',
-              'semantic': 'SEM'}
+              'semantic': 'SEM',
+              'pmc': 'PMC',}
     
     roi_corrs = {}
     roi_corrs_isc = {}
@@ -248,75 +258,75 @@ def main():
         even_motion2 = np.nanmean([motion_matrices[1][m] for m in movies[::2]], axis=0)
         odd_motion2 = np.nanmean([motion_matrices[1][m] for m in movies[1::2]], axis=0)
 
-    #     if args.isc:
-    #         n_bins = len(even_idm)
-    #         correlations = []
-    #         residual1 = []
-    #         residual2 = []
-    #         for n_bin in range(n_bins):
-    #             _, rx, ry = analysis._fully_partial_correlation(
-    #                 get_upper_triangle(even_idm[n_bin]),
-    #                 get_upper_triangle(odd_idm[n_bin]),
-    #                 get_upper_triangle(even_motion1),
-    #                 get_upper_triangle(odd_motion1))
-    #             _, rx, ry = analysis._fully_partial_correlation(
-    #                 rx,
-    #                 ry,
-    #                 get_upper_triangle(even_motion2),
-    #                 get_upper_triangle(odd_motion2))
-    #             corr, res1, res2 = analysis._fully_partial_correlation(
-    #                 rx,
-    #                 ry,
-    #                 get_upper_triangle(even_anat),
-    #                 get_upper_triangle(odd_anat))
-    #             correlations.append(corr)
-    #             residual1.append(res1)
-    #             residual2.append(res2)
-    #         roi_corrs_isc[roi] = correlations
-    #         print(roi, correlations)
-    #         diagonals = np.zeros((len(correlations), len(correlations)))
-    #         for i, corr in enumerate(correlations):
-    #             residual1_tri = residual1[i]
-    #             for j, c in enumerate(correlations):
-    #                 diagonals[i, j] = np.corrcoef(residual1_tri, residual2[j])[0, 1]
-    #         roi_split_corrs_isc[roi] = diagonals
-    #     else:
-    #         n_bins = len(even_idm)
-    #         correlations = []
-    #         residual1 = []
-    #         residual2 = []
-    #         for n_bin in range(n_bins):
-    #             # # Visualization
-    #             # idm_e = - zscore_matrix(even_idm[n_bin])
-    #             # idm_o = - zscore_matrix(odd_idm[n_bin])
-    #             # # Set diagonal to 0
-    #             # np.fill_diagonal(idm_e, np.min(idm_e))
-    #             # np.fill_diagonal(idm_o, np.min(idm_o))
-    #             # save_matrix(idm_e, filename=f"idm_even_diff_{n_bin}.svg", style='coolwarm')
-    #             # save_matrix(idm_o, filename=f"idm_odd_diff_{n_bin}.svg", style='coolwarm')
-    #             # if n_bin == 3:
-    #             #     break
-    #             _, rx, ry = analysis._fully_partial_correlation(
-    #                 get_upper_triangle(even_idm[n_bin]),
-    #                 get_upper_triangle(odd_idm[n_bin]),
-    #                 get_upper_triangle(even_motion1),
-    #                 get_upper_triangle(odd_motion1))
-    #             corr, rx, ry = analysis._fully_partial_correlation(
-    #                 rx,
-    #                 ry,
-    #                 get_upper_triangle(even_motion2),
-    #                 get_upper_triangle(odd_motion2))
-    #             correlations.append(corr)
-    #             residual1.append(rx)
-    #             residual2.append(ry)
-    #         roi_corrs[roi] = correlations
-    #         print(roi, correlations)
-    #         diagonals = np.zeros((len(correlations), len(correlations)))
-    #         for i, corr in enumerate(correlations):
-    #             residual1_tri = residual1[i]
-    #             for j, c in enumerate(correlations):
-    #                 diagonals[i, j] = np.corrcoef(residual1_tri, residual2[j])[0, 1]
-    #         roi_split_corrs[roi] = diagonals
+        if args.isc:
+            n_bins = len(even_idm)
+            correlations = []
+            residual1 = []
+            residual2 = []
+            for n_bin in range(n_bins):
+                _, rx, ry = analysis._fully_partial_correlation(
+                    get_upper_triangle(even_idm[n_bin]),
+                    get_upper_triangle(odd_idm[n_bin]),
+                    get_upper_triangle(even_motion1),
+                    get_upper_triangle(odd_motion1))
+                _, rx, ry = analysis._fully_partial_correlation(
+                    rx,
+                    ry,
+                    get_upper_triangle(even_motion2),
+                    get_upper_triangle(odd_motion2))
+                corr, res1, res2 = analysis._fully_partial_correlation(
+                    rx,
+                    ry,
+                    get_upper_triangle(even_anat),
+                    get_upper_triangle(odd_anat))
+                correlations.append(corr)
+                residual1.append(res1)
+                residual2.append(res2)
+            roi_corrs_isc[roi] = correlations
+            print(roi, correlations)
+            diagonals = np.zeros((len(correlations), len(correlations)))
+            for i, corr in enumerate(correlations):
+                residual1_tri = residual1[i]
+                for j, c in enumerate(correlations):
+                    diagonals[i, j] = np.corrcoef(residual1_tri, residual2[j])[0, 1]
+            roi_split_corrs_isc[roi] = diagonals
+        else:
+            n_bins = len(even_idm)
+            correlations = []
+            residual1 = []
+            residual2 = []
+            for n_bin in range(n_bins):
+                # # Visualization
+                # idm_e = - zscore_matrix(even_idm[n_bin])
+                # idm_o = - zscore_matrix(odd_idm[n_bin])
+                # # Set diagonal to 0
+                # np.fill_diagonal(idm_e, np.min(idm_e))
+                # np.fill_diagonal(idm_o, np.min(idm_o))
+                # save_matrix(idm_e, filename=f"idm_even_diff_{n_bin}.svg", style='coolwarm')
+                # save_matrix(idm_o, filename=f"idm_odd_diff_{n_bin}.svg", style='coolwarm')
+                # if n_bin == 3:
+                #     break
+                _, rx, ry = analysis._fully_partial_correlation(
+                    get_upper_triangle(even_idm[n_bin]),
+                    get_upper_triangle(odd_idm[n_bin]),
+                    get_upper_triangle(even_motion1),
+                    get_upper_triangle(odd_motion1))
+                corr, rx, ry = analysis._fully_partial_correlation(
+                    rx,
+                    ry,
+                    get_upper_triangle(even_motion2),
+                    get_upper_triangle(odd_motion2))
+                correlations.append(corr)
+                residual1.append(rx)
+                residual2.append(ry)
+            roi_corrs[roi] = correlations
+            print(roi, correlations)
+            diagonals = np.zeros((len(correlations), len(correlations)))
+            for i, corr in enumerate(correlations):
+                residual1_tri = residual1[i]
+                for j, c in enumerate(correlations):
+                    diagonals[i, j] = np.corrcoef(residual1_tri, residual2[j])[0, 1]
+            roi_split_corrs[roi] = diagonals
 
     # for roi in rois:
     #     args = argparse.Namespace(

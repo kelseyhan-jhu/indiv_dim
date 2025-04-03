@@ -12,6 +12,9 @@ __pycache__/
 .installed.cfg
 *.egg
 
+# Data
+*.pkl
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
