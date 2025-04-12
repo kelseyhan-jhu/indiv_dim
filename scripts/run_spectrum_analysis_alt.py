@@ -29,8 +29,8 @@ def parse_arguments():
 def main():    
     # Simulate arguments
     args = argparse.Namespace(
-        dir="cov_pmc_functional_perm",
-        roi="pmc",
+        dir="cov_calcarine_functional_perm",
+        roi="calcarine",
         metric="cov",
         alignment="functional",
         perform_permutations=True,
